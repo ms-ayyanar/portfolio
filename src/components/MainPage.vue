@@ -1,6 +1,6 @@
 <template>
     <nav class="nav-bar">
-        <ul class="tabs">
+        <ul class="nav-tabs">
             <li class="page-name active">Home</li>
             <li class="page-name">About</li>
             <li class="page-name">Skills</li>
@@ -17,7 +17,24 @@
     .nav-bar{
         background-color: #890eec;
         color: white;
-        font-weight: bold;
         font-size: 18px;
-    }    
+    }
+
+    .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 30px;
+        height: 50px;
+    }
+
+    .nav-tabs .page-name{
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .page-name.active{
+        background-color: #c694ee;
+        padding: 5px;
+    }
 </style>
