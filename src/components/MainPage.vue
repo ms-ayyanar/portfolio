@@ -1,18 +1,21 @@
 <template>
     <nav class="nav-bar">
-        <ul class="nav-tabs">
-            <li v-for="page in  pages " :key="page" :class="{ active: currentTab === page, 'page-name': true }"
-                @click="currentTab = page">
-                {{ page }}
-            </li>
-        </ul>
+        <div class="nav-tabs">
+            <router-link :to="`/${route}`" v-for="route in routerNames " :key="route"
+                :class="{ active: currentTab === route, 'page-name': true }" @click="currentTab = route">
+                {{ route.toUpperCase() }}
+            </router-link>
+        </div>
     </nav>
+
+    <router-view></router-view>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+
 const currentTab = ref("Home");
-const pages = ref(["Home", "About", "Skills", "Achievements"]);
+const routerNames = ref(["home", "about", "skills", "achievements"]);
 
 </script>
 
@@ -32,10 +35,19 @@ const pages = ref(["Home", "About", "Skills", "Achievements"]);
 }
 
 .nav-tabs .page-name {
-    list-style: none;
+    text-decoration: none;
     cursor: pointer;
     caret-color: transparent;
     margin-right: 20px;
+    color: white;
+}
+
+.nav-tabs .page-name:hover:not(.active) {
+    background-color: transparent;
+    border: 2px solid #ddb4ff;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
 .page-name.active {
