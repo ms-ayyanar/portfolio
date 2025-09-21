@@ -30,8 +30,9 @@ const routerNames = ref(["home", "about", "skills", "achievements"]);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     height: 50px;
+    /* min-width: max-content; */
 }
 
 .nav-tabs .page-name {
@@ -40,22 +41,22 @@ const routerNames = ref(["home", "about", "skills", "achievements"]);
     caret-color: transparent;
     margin-right: 20px;
     color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-weight: 500;
 }
 
 .nav-tabs .page-name:hover:not(.active) {
     background-color: transparent;
     border: 2px solid #ddb4ff;
     color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
 }
 
 .page-name.active {
     background-color: #ddb4ff;
-    padding: 5px 15px;
-    border-radius: 5px;
     color: rgb(29, 29, 29);
-    transition: background-color 0.5s;
+    transition: all 0.5s;
     font-weight: 600;
 }
 </style>
