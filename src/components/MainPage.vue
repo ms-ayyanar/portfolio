@@ -3,19 +3,27 @@
         <div class="nav-tabs">
             <router-link :to="`/${route}`" v-for="route in routerNames " :key="route"
                 :class="{ active: currentTab === route, 'page-name': true }" @click="currentTab = route">
-                {{ route.toUpperCase() }}
+                {{ route.toUpperCase() || "HOME" }}
             </router-link>
         </div>
     </nav>
 
-    <router-view></router-view>
+    <div id="body-container">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
-const currentTab = ref("Home");
-const routerNames = ref(["home", "about", "skills", "achievements"]);
+const currentTab = ref("");
+const routerNames = ref(["", "about", "skills", "achievements"]);
+// const routerNames = ref([
+//     { name: "", active: true },
+//     { name: "about", active: false },
+//     { name: "skills", active: false },
+//     { name: "achievements", active: false },
+// ]);
 
 </script>
 

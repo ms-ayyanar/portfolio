@@ -4,3 +4,13 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+#body-container{
+  padding: 0px 10px;
+}
+
+:root{
+  --color-purple: #890eec;
+  --secondary-color: #5d0eec;
+  --gray-text: rgb(137, 137, 137);
+}
