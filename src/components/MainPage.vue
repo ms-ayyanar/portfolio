@@ -17,7 +17,7 @@
 import { ref } from 'vue';
 
 const currentTab = ref("");
-const routerNames = ref(["", "about", "skills", "achievements"]);
+const routerNames = ref(["", "about", "achievements", "contact"]);
 // const routerNames = ref([
 //     { name: "", active: true },
 //     { name: "about", active: false },
@@ -57,12 +57,12 @@ const routerNames = ref(["", "about", "skills", "achievements"]);
 
 .nav-tabs .page-name:hover:not(.active) {
     background-color: transparent;
-    border: 2px solid #ddb4ff;
+    border: 2px solid var(--border-pink);
     color: white;
 }
 
 .page-name.active {
-    background-color: #ddb4ff;
+    background-color: var(--border-pink);
     color: rgb(29, 29, 29);
     transition: all 0.5s;
     font-weight: 600;

@@ -1,103 +1,125 @@
-<template class="about-tab">
-    <div id="about-tab">
-        <div style="text-align: center;">
-            <h1>Studies</h1>
-        </div>
-        <div id="studies-container">
-            <div class="card school">
-                <p class="heading">School</p>
-                <hr style="color: azure;">
+<template>
+    <div class="timeline-container">
+        <div class="timeline">
 
-                <div class="content">
-                    <p>-Finished 10<sup>th</sup> and 12<sup>th</sup> on SHNV Higher secondary school, Sivakasi.</p>
-                    <p>-CGPA: 8.8 and 6.0</p>
-                    <p>-2017 to 2019</p>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h2>School</h2>
+                    <p>- Finished 10<sup>th</sup> and 12<sup>th</sup> at SHNV Higher Secondary School, Sivakasi.</p>
+                    <p>- CGPA: 8.8 and 6.0</p>
+                    <p>- 2017 to 2019</p>
                 </div>
             </div>
-            <div class="card bachelor">
-                <p class="heading">Bachelor</p>
-                <hr style="color: azure;">
 
-                <div class="content">
-                    <p>-BCA in Ayya Nadar Janaki Ammal College, Sivakasi.</p>
-                    <p>-CGPA: 8.0</p>
-                    <p>-2019 to 2022</p>
-                    <p>-Learned what is programming and How it works.</p>
-                    <p>-Skills C, C++, C#, Java, Mysql, PHP, HTML, CSS and JS</p>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h2>Bachelor</h2>
+                    <p>- BCA at Ayya Nadar Janaki Ammal College, Sivakasi.</p>
+                    <p>- CGPA: 8.0</p>
+                    <p>- 2019 to 2022</p>
+                    <p>- Learned what programming is and how it works.</p>
+                    <p>- Skills: C, C++, C#, Java, MySQL, PHP, HTML, CSS, JS</p>
                 </div>
             </div>
-            <div class="card master">
-                <p class="heading">Master</p>
-                <hr style="color: azure;">
 
-                <div class="content">
-                    <p>-MCA in Hindusthan College of Engineering and Technology, Coimbatore.</p>
-                    <p>-CGPA: 8.5</p>
-                    <p>-2022 to 2024</p>
-                    <p>-Learned next level to programming.</p>
-                    <p>-Skills Machine Learning and Deep Learning, Networking, MongoDB, Cryptography.</p>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h2>Master</h2>
+                    <p>- MCA at Hindusthan College of Engineering and Technology, Coimbatore.</p>
+                    <p>- CGPA: 8.5</p>
+                    <p>- 2022 to 2024</p>
+                    <p>- Learned advanced programming concepts.</p>
+                    <p>- Skills: Machine Learning, Deep Learning, Networking, MongoDB, Cryptography</p>
                 </div>
             </div>
-        </div>
 
-        <div class="work-container">
-
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h2>Work</h2>
+                    <p>- Working @ Srimax Software Technology</p>
+                    <p>- Software Engineer</p>
+                    <p>- SEP 2024 To Present </p>
+                    <p>- Working on "OurProperty" - Australia Property management project </p>
+                    <p>- Skills: AngularJS, Joomla Framework, MySQL, PHP, Vue, Laravel, API integration.</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
 <script setup>
-
 </script>
+
 <style scoped>
-#studies-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.timeline {
+    position: relative;
+    margin: 40px auto;
+    padding: 20px 0;
+    width: 80%;
 }
 
-.card {
-    border: 3px solid var(--color-purple);
-    border-radius: 10px;
-    box-shadow: 1px 2px 10px var(--gray-text);
-    background-color: rgb(255, 255, 255);
-    transition: 0.5s all;
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 4px;
+    height: 100%;
+    background: var(--color-purple);
 }
 
-.card:hover {
-    box-shadow: 1px 2px 20px var(--color-purple);
-    transform: scale(1.03);
+.timeline-item {
+    position: relative;
+    margin: 20px 0 20px 60px;
 }
 
-.card .heading {
-    font-size: 24px;
+.timeline-dot {
+    position: absolute;
+    left: -11px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-purple);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--color-purple);
+}
+
+.timeline-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 1px 2px 8px var(--gray-text);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: scale(1.02);
+    box-shadow: 1px 2px 15px var(--color-purple);
+}
+
+.timeline-content h2 {
+    margin: 0 0 10px;
     color: var(--color-purple);
 }
 
-.card .content>p {
-    margin-bottom: 20px;
+.timeline-content p {
+    margin: 5px 0;
+    line-height: 1.5;
 }
 
-@media screen and (max-width: 1200px) {
-    #about-tab {
-        padding: 20px;
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .timeline::before {
+        left: 10px;
     }
 
-    #studies-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .master {
-        grid-column: 1 / -1;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    #about-tab {
-        padding: 20px;
-    }
-
-    #studies-container {
-        grid-template-columns: repeat(1, 1fr);
+    .timeline-item {
+        margin-left: 40px;
     }
 }
 </style>
