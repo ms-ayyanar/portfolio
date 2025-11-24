@@ -1,15 +1,17 @@
 <template>
-    <nav class="nav-bar">
-        <div class="nav-tabs">
-            <router-link :to="`/${route}`" v-for="route in routerNames " :key="route"
-                :class="{ active: currentTab === route, 'page-name': true }" @click="currentTab = route">
-                {{ route.toUpperCase() || "HOME" }}
-            </router-link>
-        </div>
-    </nav>
+    <div id="mainPage">
+        <nav class="nav-bar">
+            <div class="nav-tabs">
+                <router-link :to="`/${route}`" v-for="route in routerNames " :key="route"
+                    :class="{ active: currentTab === route, 'page-name': true }" @click="currentTab = route">
+                    {{ route.toUpperCase() || "HOME" }}
+                </router-link>
+            </div>
+        </nav>
 
-    <div id="body-container">
-        <router-view></router-view>
+        <div id="body-container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -66,5 +68,9 @@ const routerNames = ref(["", "about", "achievements", "contact"]);
     color: rgb(29, 29, 29);
     transition: all 0.5s;
     font-weight: 600;
+}
+
+@media screen and (max-width: 1000px) {
+    
 }
 </style>
