@@ -2,9 +2,8 @@
     <div id="mainPage">
         <nav class="nav-bar">
             <div class="nav-tabs">
-                <router-link :to="`/${route}`" v-for="route in routerNames " :key="route"
-                    :class="{ active: currentTab === route, 'page-name': true }" @click="currentTab = route">
-                    {{ route.toUpperCase() || "HOME" }}
+                <router-link :to="route.path" v-for="route in routes" :key="route.name" class="page-name">
+                    {{ route.name }}
                 </router-link>
             </div>
         </nav>
@@ -18,14 +17,12 @@
 <script setup>
 import { ref } from 'vue';
 
-const currentTab = ref("");
-const routerNames = ref(["", "about", "achievements", "contact"]);
-// const routerNames = ref([
-//     { name: "", active: true },
-//     { name: "about", active: false },
-//     { name: "skills", active: false },
-//     { name: "achievements", active: false },
-// ]);
+const routes = ref([
+    { path: '/', name: 'HOME' },
+    { path: '/about', name: 'ABOUT' },
+    { path: '/achievements', name: 'ACHIEVEMENTS' },
+    { path: '/contact', name: 'CONTACT' }
+]);
 
 </script>
 
@@ -57,20 +54,24 @@ const routerNames = ref(["", "about", "achievements", "contact"]);
     font-weight: 500;
 }
 
-.nav-tabs .page-name:hover:not(.active) {
+.nav-tabs .page-name:hover:not(.router-link-exact-active) {
     background-color: transparent;
     border: 2px solid var(--border-pink);
     color: white;
 }
 
-.page-name.active {
+.page-name.router-link-exact-active {
     background-color: var(--border-pink);
     color: rgb(29, 29, 29);
     transition: all 0.5s;
     font-weight: 600;
 }
 
-@media screen and (max-width: 1000px) {
-    
+@media screen and (max-width: 480px) {
+    .nav-tabs {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
 }
 </style>
