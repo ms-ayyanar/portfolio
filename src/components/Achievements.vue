@@ -19,29 +19,29 @@
 import { ref } from 'vue';
 
 const achievements = ref([
-    {
-        title: "Centum in Social Science",
-        desc: "First time get a centum in 10th public exam in Social Science. My school even give me a prize.",
-        iconImage: "icons/hundred-points.png"
-    },
-    {
-        title: "NPTEL certificates",
-        desc: "Got a certificate for Psychology and Soft skills after pass the NPTEL exam. I like human Psychology and learning a new thing.",
-        iconImage: "icons/diploma.png"
-    },
+    // {
+    //     title: "Centum in Social Science",
+    //     desc: "First time get a centum in 10th public exam in Social Science. My school even give me a prize.",
+    //     iconImage: "icons/hundred-points.png"
+    // },
     {
         title: "Microsoft Azure",
-        desc: "Certified by Microsoft Azure for Cloud Computing. Learned basics of Cloud computing and how it works.",
+        desc: "Gained hands-on understanding of cloud concepts, services, and deployment basics.",
         iconImage: "icons/microsoft.png"
     },
     {
-        title: "Journal Publication",
-        desc: "Did a mini project and major project in my PG. Publish the paper on International Journal of Innovative Research in Science, Engineering and Technology(IJIRSET).",
+        title: "Research Publication – IJIRSET",
+        desc: "Published a research paper based on PG mini and major projects in the International Journal of Innovative Research in Science, Engineering and Technology (IJIRSET).",
         iconImage: "icons/news.png"
     },
     {
+        title: "NPTEL certificates",
+        desc: "Successfully completed NPTEL courses focused on human psychology and professional soft skills.",
+        iconImage: "icons/diploma.png"
+    },
+    {
         title: "Online courses",
-        desc: "Cleared an online course on Java full stack and Master in C. It helps me on my career goals on programming.",
+        desc: "Completed Java Full-Stack development and advanced C programming courses.",
         iconImage: "icons/online-course.png"
     }
 ]);
@@ -59,18 +59,14 @@ h1 {
 .icon {
     width: 30px;
     height: 30px;
-    /* background-color: rgb(206, 206, 206); */
+    background-color: transparent;
     padding: 2px;
 }
 
 .cards {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 300px;
-    gap: 20px; */
-
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
     gap: 20px;
     padding: 0 20px;
 }
@@ -84,11 +80,6 @@ h1 {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.card-body {
-    height: 70%;
-    padding: 10px 15px;
 }
 
 .card-header {
@@ -108,16 +99,18 @@ h1 {
     line-height: 1.5;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+}
 
-.card-header,
-.card-footer {
-    height: 15%;
-    background-color: var(--color-purple);
-    color: white;
-    padding: 10px;
+.card-body {
+    flex: 1;
+    padding: 10px 15px;
 }
 
 .card-footer {
+    flex: 0 0 auto;
     background-color: rgb(247, 247, 247);
     border-top: 2px solid rgb(230, 230, 230);
 }
