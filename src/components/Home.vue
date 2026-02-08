@@ -1,13 +1,13 @@
 <template>
     <div id="me-container">
         <div id="text-container">
-            <h1 style="font-size: 75px;">Hello world! <br>I am <span style="color: var(--color-purple)">Ayyanar</span></h1>
+            <h1 style="font-size: 50px;">Hello world! <br>I am <span style="color: var(--color-purple)">Ayyanar</span></h1>
             <p>A curious person on learn new things like Science, Technology and Space. Working on my passion IT.</p>
             <p>Loves to play video games and development on it.</p>
-            <p style="color: var(--gray-text);">Softeware Engineer <a
+            <p style="color: var(--gray-text);">Software Engineer <a
                     style="color: var(--color-purple); text-decoration: none;" target="_blank"
                     href="https://www.srimax.com/">@Srimax</a></p>
-            <p style="color: var(--gray-text); font-style: italic;">Build Front end code and API development</p>
+            <p style="color: var(--gray-text); font-style: italic;">Build Front end, Back end code and API development</p>
 
             <div id="button-container">
                 <button @click="download()" style="margin-right: 10px;" class="btn btn-purple flex-button">Download Resume
@@ -20,9 +20,9 @@
                 </button>
             </div>
         </div>
-        <div id="img-container">
+        <!-- <div id="img-container">
             <img class="image-self" src="../assets/images/me.png" alt="" width="500" height="600">
-        </div>
+        </div> -->
     </div>
 </template>
 <script setup>
@@ -41,7 +41,9 @@ const download = () => {
 }
 
 #me-container>div {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 #text-container {
