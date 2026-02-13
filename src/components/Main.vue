@@ -67,7 +67,7 @@ const routes = ref([
     font-weight: 600;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 750px) {
     .nav-tabs {
         flex-direction: column;
         height: auto;

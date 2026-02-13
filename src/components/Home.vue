@@ -5,9 +5,10 @@
             <p style="color: var(--gray-text);">Software Engineer <a
                     style="color: var(--color-purple); text-decoration: none;" target="_blank"
                     href="https://www.srimax.com/">@Srimax</a></p>
+
+            <p style="color: var(--gray-text); font-style: italic;">Front-end, back-end, and API development.</p>
             <p>Web Developer by profession, driven by curiosity for technology, science, and space.</p>
             <!-- <p>I build games, play games, and love understanding how they work.</p> -->
-            <p style="color: var(--gray-text); font-style: italic;">Front-end, back-end, and API development.</p>
 
             <div id="button-container">
                 <button @click="download()" style="margin-right: 10px;" class="btn btn-purple flex-button">Download Resume
@@ -21,7 +22,7 @@
             </div>
         </div>
         <!-- <div id="img-container">
-            <img class="image-self" src="../assets/images/me.png" alt="" width="500" height="600">
+            <img class="image-self" src="../assets/images/wallpaper1.jpg" alt="" width="500" height="500">
         </div> -->
     </div>
 </template>
@@ -36,32 +37,28 @@ const download = () => {
 }
 </script>
 <style scoped>
-* {
-    overflow: hidden;
-}
-
-#me-container>div {
+#me-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow: hidden;
 }
 
 #text-container {
-    width: 40%;
-    height: auto;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1.4rem;
 }
 
 #img-container {
-    width: 60%;
-    text-align: right;
-    position: relative;
-    left: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .image-self {
     border-radius: 10px;
-    image-resolution: ce;
     transition: transform 0.4s ease;
 }
 
@@ -95,5 +92,15 @@ p {
     display: inline-flex;
     justify-content: space-between;
     gap: 15px;
+}
+
+/* Mobile width */
+
+@media (max-width: 750px) {
+    #text-container {
+        display: flex;
+        gap: 1.5rem;
+        width: 100%;
+    }
 }
 </style>
