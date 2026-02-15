@@ -2,9 +2,16 @@
     <div id="mainPage">
         <nav class="nav-bar">
             <div class="nav-tabs">
-                <router-link :to="route.path" v-for="route in routes" :key="route.name" class="page-name">
-                    {{ route.name }}
-                </router-link>
+                <button class="menu-toggle" @click="menuToggle" v-if="isMobileView">
+                    &#9776;
+                </button>
+
+                <div v-show="showMenu || !isMobileView" class="nav-links">
+                    <router-link @click="menuToggle" v-for="route in routes" :key="route.name" :to="route.path"
+                        class="page-name">
+                        {{ route.name }}
+                    </router-link>
+                </div>
             </div>
         </nav>
 
@@ -15,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const routes = ref([
     { path: '/', name: 'HOME' },
@@ -24,26 +31,69 @@ const routes = ref([
     { path: '/contact', name: 'CONTACT' }
 ]);
 
+const showMenu = ref(true);
+const isMobileView = ref(false);
+
+onMounted(() => {
+    updateMobileView();
+});
+
+// Methods
+const updateMobileView = () => {
+    console.log("resizing");
+    isMobileView.value = window.innerWidth <= 750;
+    if (isMobileView.value) {
+        showMenu.value = true;
+    }
+};
+
+const menuToggle = () => {
+    showMenu.value = !showMenu.value;
+}
+
+// Check on every resize screen
+window.addEventListener('resize', updateMobileView);
 </script>
 
 <style>
+.menu-toggle {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.menu-toggle:hover {
+    /* border: 2px solid var(--border-pink); */
+    padding: 0px 8px;
+    caret-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+}
+
 .nav-bar {
     background-color: #890eec;
     color: white;
     font-size: 18px;
+    padding: 10px;
 }
 
 .nav-tabs {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    height: 50px;
     /* min-width: max-content; */
 }
 
 .nav-tabs .page-name {
     text-decoration: none;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
     caret-color: transparent;
     margin-right: 20px;
@@ -70,8 +120,19 @@ const routes = ref([
 @media screen and (max-width: 750px) {
     .nav-tabs {
         flex-direction: column;
+        align-items: flex-start;
         height: auto;
         padding: 10px 0;
     }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
 }
 </style>
