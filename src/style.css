@@ -1,18 +1,278 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+/* ================================
+   Global Reset
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-#body-container{
-  padding: 0px 10px;
-  margin-bottom: 20px;
+
+html {
+    scroll-behavior: smooth;
 }
 
-:root{
-  --color-purple: #890eec;
-  --secondary-color: #5d0eec;
-  --gray-text: rgb(137, 137, 137);
-  --border-pink: #ddb4ff;
+.heading {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+
+    font-family: "Inter", sans-serif;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ================================
+   Root Variables
+================================ */
+
+:root {
+
+    /* Brand Colors */
+    --primary-purple: #6D28D9;
+    --secondary-purple: #7C3AED;
+    --light-purple: #EDE9FE;
+
+    --purple-hover: #5B21B6;
+
+
+    /* Text Colors */
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-light: #9CA3AF;
+
+
+    /* Background Colors */
+    --background: #FFFFFF;
+    --background-soft: #F8F7FF;
+    --surface: #FFFFFF;
+    --dark-section: #111827;
+
+
+    /* Border Colors */
+    --border-color: #E5E7EB;
+    --border-purple: #DDD6FE;
+
+
+    /* Status Colors */
+    --success: #16A34A;
+    --warning: #D97706;
+    --danger: #DC2626;
+
+
+    /* Shadows */
+    --shadow-sm:
+        0px 2px 8px rgba(0,0,0,0.06);
+
+    --shadow-md:
+        0px 8px 20px rgba(0,0,0,0.08);
+
+    --shadow-purple:
+        0px 8px 25px rgba(109,40,217,0.25);
+
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+
+    /* Container */
+    --max-width: 1200px;
+
+
+    /* Animation */
+    --transition:
+        all 0.3s ease;
+}
+
+
+
+/* ================================
+   Main Container
+================================ */
+
+#body-container {
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 0 20px;
+}
+
+
+
+/* ================================
+   Common Section Style
+================================ */
+
+.section {
+
+    padding: 80px 0;
+}
+
+
+.section-title {
+
+    font-size: 36px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+
+    margin-bottom: 15px;
+}
+
+
+.section-description {
+
+    color: var(--text-secondary);
+
+    max-width: 600px;
+
+}
+
+
+
+/* ================================
+   Common Card
+================================ */
+
+.card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    padding: 20px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+
+
+/* ================================
+   Buttons
+================================ */
+
+.btn-primary {
+
+    background: var(--primary-purple);
+
+    color: white;
+
+    padding: 12px 24px;
+
+    border-radius: var(--radius-sm);
+
+    transition: var(--transition);
+
+}
+
+
+.btn-primary:hover {
+
+    background: var(--purple-hover);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+.btn-outline {
+
+    background: transparent;
+
+    color: var(--primary-purple);
+
+    border: 1px solid var(--primary-purple);
+
+    padding: 12px 24px;
+
+    border-radius: var(--radius-sm);
+
+    transition: var(--transition);
+
+}
+
+
+.btn-outline:hover {
+
+    background: var(--light-purple);
+
+}
+
+
+
+/* ================================
+   Utility Classes
+================================ */
+
+
+.text-purple {
+
+    color: var(--primary-purple);
+
+}
+
+
+.text-secondary {
+
+    color: var(--text-secondary);
+
+}
+
+
+.flex {
+
+    display: flex;
+
+}
+
+
+.center {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
