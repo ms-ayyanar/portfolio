@@ -1,12 +1,17 @@
-/* ================================
-   Global Reset
-================================ */
+/* =========================================================
+   Personal Portfolio
+   Theme: Modern Clean - Dark
+========================================================= */
+
+
+/* =========================================================
+   CSS RESET
+========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
 
 
@@ -14,265 +19,584 @@ html {
     scroll-behavior: smooth;
 }
 
-.heading {
-    font-family: "Poppins", sans-serif;
-}
 
 body {
-    background: var(--background);
+    min-height: 100vh;
+
+    background: var(--bg-primary);
     color: var(--text-primary);
+
+    font-family: "Poppins", sans-serif;
+
     line-height: 1.6;
 
-    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 
 button {
     border: none;
     cursor: pointer;
-    font-family: inherit;
 }
 
 
-img {
-    max-width: 100%;
-    display: block;
+input,
+textarea {
+    outline: none;
 }
 
 
-/* ================================
-   Root Variables
-================================ */
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
 
 :root {
 
-    /* Brand Colors */
+    /* -----------------------------------------------------
+       Brand Colors
+    ----------------------------------------------------- */
+
     --primary-purple: #6D28D9;
-    --secondary-purple: #7C3AED;
-    --light-purple: #EDE9FE;
+    --secondary-purple: #8B5CF6;
 
-    --purple-hover: #5B21B6;
+    --purple-light: #A78BFA;
+    --purple-dark: #5B21B6;
 
-
-    /* Text Colors */
-    --text-primary: #111827;
-    --text-secondary: #6B7280;
-    --text-light: #9CA3AF;
+    --purple-soft: rgba(139, 92, 246, 0.12);
+    --purple-glow: rgba(109, 40, 217, 0.25);
 
 
-    /* Background Colors */
-    --background: #FFFFFF;
-    --background-soft: #F8F7FF;
-    --surface: #FFFFFF;
-    --dark-section: #111827;
+    /* -----------------------------------------------------
+       Background
+    ----------------------------------------------------- */
+
+    --bg-primary: #0B0F19;
+    --bg-secondary: #0F1420;
+    --bg-tertiary: #111827;
+
+    --bg-section: #0D121D;
+
+    --surface: #111827;
+    --surface-hover: #172033;
 
 
-    /* Border Colors */
-    --border-color: #E5E7EB;
-    --border-purple: #DDD6FE;
+    /* -----------------------------------------------------
+       Text
+    ----------------------------------------------------- */
+
+    --text-primary: #F9FAFB;
+    --text-secondary: #D1D5DB;
+    --text-muted: #9CA3AF;
+    --text-disabled: #6B7280;
 
 
-    /* Status Colors */
-    --success: #16A34A;
-    --warning: #D97706;
-    --danger: #DC2626;
+    /* -----------------------------------------------------
+       Borders
+    ----------------------------------------------------- */
+
+    --border-color: #1F2937;
+    --border-light: #273449;
+    --border-purple: rgba(139, 92, 246, 0.45);
 
 
-    /* Shadows */
+    /* -----------------------------------------------------
+       Status Colors
+    ----------------------------------------------------- */
+
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #3B82F6;
+
+
+    /* -----------------------------------------------------
+       Shadows
+    ----------------------------------------------------- */
+
     --shadow-sm:
-        0px 2px 8px rgba(0,0,0,0.06);
+        0 2px 8px rgba(0, 0, 0, 0.20);
 
     --shadow-md:
-        0px 8px 20px rgba(0,0,0,0.08);
+        0 8px 24px rgba(0, 0, 0, 0.30);
+
+    --shadow-lg:
+        0 15px 40px rgba(0, 0, 0, 0.40);
 
     --shadow-purple:
-        0px 8px 25px rgba(109,40,217,0.25);
+        0 10px 30px rgba(109, 40, 217, 0.25);
 
 
-    /* Border Radius */
+    /* -----------------------------------------------------
+       Border Radius
+    ----------------------------------------------------- */
+
     --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+
+    --radius-full: 9999px;
 
 
-    /* Container */
-    --max-width: 1200px;
+    /* -----------------------------------------------------
+       Layout
+    ----------------------------------------------------- */
+
+    --container-width: 1200px;
+
+    --section-padding: 90px;
+
+    --navbar-height: 72px;
 
 
-    /* Animation */
-    --transition:
-        all 0.3s ease;
+    /* -----------------------------------------------------
+       Transitions
+    ----------------------------------------------------- */
+
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+
+    /* -----------------------------------------------------
+       Typography
+    ----------------------------------------------------- */
+
+    --heading-weight: 700;
+    --body-weight: 400;
+
 }
 
 
+/* =========================================================
+   GLOBAL CONTAINER
+========================================================= */
 
-/* ================================
-   Main Container
-================================ */
-
-#body-container {
-
+.container {
     width: 100%;
-    max-width: var(--max-width);
+    max-width: var(--container-width);
 
-    margin: auto;
+    margin: 0 auto;
 
-    padding: 0 20px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 
-
-/* ================================
-   Common Section Style
-================================ */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section {
+    padding: var(--section-padding) 0;
+}
 
-    padding: 80px 0;
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary-purple);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 
 .section-title {
-
-    font-size: 36px;
-    font-weight: 700;
+    margin-bottom: 12px;
 
     color: var(--text-primary);
 
-    margin-bottom: 15px;
+    font-size: 36px;
+    font-weight: var(--heading-weight);
+
+    line-height: 1.2;
 }
 
 
 .section-description {
+    max-width: 650px;
 
-    color: var(--text-secondary);
+    color: var(--text-muted);
 
-    max-width: 600px;
-
+    font-size: 15px;
+    line-height: 1.8;
 }
 
 
-
-/* ================================
-   Common Card
-================================ */
+/* =========================================================
+   COMMON CARD
+========================================================= */
 
 .card {
+    background: var(--surface);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+
+.card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--border-light);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.btn-primary {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 11px 22px;
+
+    background: var(--primary-purple);
+    color: #FFFFFF;
+
+    border-radius: var(--radius-sm);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+.btn-primary:hover {
+    background: var(--secondary-purple);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-purple);
+}
+
+
+/* =========================================================
+   OUTLINE BUTTON
+========================================================= */
+
+.btn-outline {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 22px;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius-sm);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.btn-outline:hover {
+    background: var(--purple-soft);
+
+    border-color: var(--border-purple);
+
+    color: var(--purple-light);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TECHNOLOGY / PROJECT TAG
+========================================================= */
+
+.tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 10px;
+
+    background: var(--bg-tertiary);
+
+    color: var(--text-secondary);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-full);
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.link {
+    color: var(--purple-light);
+
+    transition:
+        color var(--transition-fast);
+}
+
+
+.link:hover {
+    color: var(--secondary-purple);
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+.form-input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: var(--bg-secondary);
+
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-sm);
+
+    font-size: 14px;
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+.form-input::placeholder {
+    color: var(--text-disabled);
+}
+
+
+.form-input:focus {
+    border-color: var(--secondary-purple);
+
+    box-shadow:
+        0 0 0 3px var(--purple-soft);
+}
+
+
+/* =========================================================
+   SOCIAL ICON
+========================================================= */
+
+.social-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--text-secondary);
 
     background: var(--surface);
 
     border: 1px solid var(--border-color);
 
-    border-radius: var(--radius-md);
-
-    padding: 20px;
-
-    box-shadow: var(--shadow-sm);
-
-    transition: var(--transition);
-}
-
-
-.card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: var(--shadow-md);
-
-}
-
-
-
-/* ================================
-   Buttons
-================================ */
-
-.btn-primary {
-
-    background: var(--primary-purple);
-
-    color: white;
-
-    padding: 12px 24px;
-
     border-radius: var(--radius-sm);
 
-    transition: var(--transition);
-
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 
-.btn-primary:hover {
+.social-icon:hover {
+    color: var(--purple-light);
 
-    background: var(--purple-hover);
+    background: var(--purple-soft);
+
+    border-color: var(--border-purple);
 
     transform: translateY(-2px);
-
 }
 
 
-
-.btn-outline {
-
-    background: transparent;
-
-    color: var(--primary-purple);
-
-    border: 1px solid var(--primary-purple);
-
-    padding: 12px 24px;
-
-    border-radius: var(--radius-sm);
-
-    transition: var(--transition);
-
-}
-
-
-.btn-outline:hover {
-
-    background: var(--light-purple);
-
-}
-
-
-
-/* ================================
-   Utility Classes
-================================ */
-
+/* =========================================================
+   PURPLE TEXT
+========================================================= */
 
 .text-purple {
-
-    color: var(--primary-purple);
-
+    color: var(--secondary-purple);
 }
 
 
-.text-secondary {
+/* =========================================================
+   DIVIDER
+========================================================= */
 
-    color: var(--text-secondary);
+.divider {
+    width: 100%;
+    height: 1px;
 
+    background: var(--border-color);
 }
 
 
-.flex {
+/* =========================================================
+   SCROLLBAR
+========================================================= */
 
-    display: flex;
-
+::-webkit-scrollbar {
+    width: 8px;
 }
 
 
-.center {
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
+::-webkit-scrollbar-thumb {
+    background: #374151;
+
+    border-radius: var(--radius-full);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-purple);
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: var(--primary-purple);
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+
+    :root {
+        --section-padding: 75px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    :root {
+        --section-padding: 65px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        font-size: 14px;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    :root {
+        --section-padding: 55px;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        padding: 10px 18px;
+
+        font-size: 13px;
+    }
 }
